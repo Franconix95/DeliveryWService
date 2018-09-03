@@ -24,81 +24,92 @@ namespace DeliveryWService.Services
 
         public Delivery GetDelivery(Delivery delivery)
         {
-            var ctx = HttpContext.Current;
-
-            if (ctx != null)
+           
+            try
             {
-                try
+                List<Route> currentDataRoute = new RouteRepository().GetAllRoutes().ToList();
+                List<Point> currentDataPoint = new PointRepository().GetAllPoints().ToList();
+                
+                #region Validate Source Point and Destination Point
+                if (currentDataPoint.Exists(p => p.Id == delivery.IdSource))
                 {
-                    List<Route> currentDataRoute = new RouteRepository().GetAllRoutes().ToList();
-                    List<Point> currentDataPoint = new PointRepository().GetAllPoints().ToList();
-                    currentDataRoute.RemoveAll(r => r.IdSource == delivery.IdSource && r.IdDestiny == delivery.IdDestiny);
+                    delivery.BestRoute = "No source point found in points repository.";
+                    return delivery;
+                }
+                else if (!currentDataPoint.Exists(p => p.Id == delivery.IdDestiny))
+                {
+                    delivery.BestRoute = "No destimatiom point found in points repository.";
+                    return delivery;
+                }
+                #endregion Validate Source Point and Destination Point
 
-                    #region Build Graph
-                    int[,] graph = new int[currentDataPoint.Count(), currentDataPoint.Count()];
-                    int x =0;
-                    foreach (Point pointX in currentDataPoint)
+                #region Build Graph
+                currentDataRoute.RemoveAll(r => r.IdSource == delivery.IdSource && r.IdDestiny == delivery.IdDestiny);
+
+                int[,] graph = new int[currentDataPoint.Count(), currentDataPoint.Count()];
+                int x =0;
+                foreach (Point pointX in currentDataPoint)
+                {
+                    int y = 0; 
+                    foreach (Point pointY in currentDataPoint)
                     {
-                        int y = 0; 
-                        foreach (Point pointY in currentDataPoint)
+                        if (currentDataRoute.Exists(r => r.IdSource == pointX.Id && r.IdDestiny == pointY.Id))
                         {
-                            if (currentDataRoute.Exists(r => r.IdSource == pointX.Id && r.IdDestiny == pointY.Id))
+                            switch(delivery.Type.ToUpper())
                             {
-                                switch(delivery.Type.ToUpper())
-                                {
-                                    case "COST":
-                                        graph[x, y] = currentDataRoute.FirstOrDefault(r => r.IdSource == pointX.Id && r.IdDestiny == pointY.Id).RouteCost;
-                                        break;
-                                    case "TIME":
-                                        graph[x, y] = currentDataRoute.FirstOrDefault(r => r.IdSource == pointX.Id && r.IdDestiny == pointY.Id).RouteTime;
-                                        break;
-                                }
+                                case "COST":
+                                    graph[x, y] = currentDataRoute.FirstOrDefault(r => r.IdSource == pointX.Id && r.IdDestiny == pointY.Id).RouteCost;
+                                    break;
+                                case "TIME":
+                                    graph[x, y] = currentDataRoute.FirstOrDefault(r => r.IdSource == pointX.Id && r.IdDestiny == pointY.Id).RouteTime;
+                                    break;
                             }
-                            else
-                                graph[x, y] = 0;
-                            y++;
                         }
-                        x++;
+                        else
+                            graph[x, y] = 0;
+                        y++;
                     }
-                    #endregion Build Graph
-
-                    #region Get Short Path
-                    var path = Dijkstra.DijkstraAlgorithm(graph, 
-                        currentDataPoint.FindIndex(r => r.Id == delivery.IdSource),
-                        currentDataPoint.FindIndex(r => r.Id == delivery.IdDestiny)
-                        );
-
-                    string formattedPath = "";
-                    if (path == null)
-                    {
-                        formattedPath = "No path";
-                    }
-                    else
-                    {
-                        int pathLength = 0;
-                        for (int i = 0; i < path.Count - 1; i++)
-                        {
-                            pathLength += graph[path[i], path[i + 1]];
-                        }
-                        
-                        for (int i = 0; i < path.Count; i++)
-                        {
-                            formattedPath += "(" + currentDataPoint[path[i]].Id + " - " + currentDataPoint[path[i]].Name + ")";
-                            if (i < path.Count - 1)
-                                formattedPath += " -> ";
-                        }
-                        formattedPath += " - Total cost in " + delivery.Type + ": " + pathLength;
-                    }
-                    #endregion
-                    delivery.BestRoute = formattedPath;
-
-                    return delivery;
+                    x++;
                 }
-                catch (Exception ex)
+                #endregion Build Graph
+
+                #region Get Short Path
+
+                var path = Dijkstra.DijkstraAlgorithm(graph, 
+                    currentDataPoint.FindIndex(r => r.Id == delivery.IdSource),
+                    currentDataPoint.FindIndex(r => r.Id == delivery.IdDestiny)
+                    );
+
+                string formattedPath = "";
+                if (path == null)
                 {
-                    Console.WriteLine(ex.ToString());
-                    return delivery;
+                    formattedPath = "No path";
                 }
+                else
+                {
+                    int pathLength = 0;
+                    for (int i = 0; i < path.Count - 1; i++)
+                    {
+                        pathLength += graph[path[i], path[i + 1]];
+                    }
+                        
+                    for (int i = 0; i < path.Count; i++)
+                    {
+                        formattedPath += "(" + currentDataPoint[path[i]].Id + " - " + currentDataPoint[path[i]].Name + ")";
+                        if (i < path.Count - 1)
+                            formattedPath += " -> ";
+                    }
+                    formattedPath += " - Total cost in " + delivery.Type + ": " + pathLength;
+                }
+                #endregion
+                delivery.BestRoute = formattedPath;
+
+                return delivery;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
             }
             return delivery;
         }
