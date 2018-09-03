@@ -1,0 +1,40 @@
+﻿<div id="body">
+    <ul id="deliveries"></ul>
+    <form id="saveDeliveryForm" method="post">
+    <h3>Create a new Delivery</h3>
+    <p>
+        <label for="deliveryId">Delivery Id:</label>
+        <input type="text" name="Id" />
+    </p>
+    <p>
+        <label for="deliveryName">Delivery Name:</label>
+        <input type="text" name="Name" />
+    </p>
+    <input type="button" id="saveDelivery" value="Save" />
+    </form>
+</div>
+
+@section scripts{
+<script type="text/javascript">
+$(function()
+{
+        $.getJSON('/api/Delivery', function(contactsJsonPayload)
+        {
+            $(contactsJsonPayload).each(function(i, item)
+            {
+                $('#deliveries').append('<li>' + item.Name + '</li>');
+            });
+        });
+});
+
+$('#saveDelivery').click(function () {
+    $.post("api/Delivery",
+          $("#saveDeliveryForm").serialize(),
+          function (value) {
+              $('#deliveries').append('<li>' + value.Name + '</li>');
+          },
+          "json"
+    );
+});
+</script>
+}

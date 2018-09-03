@@ -1,0 +1,304 @@
+﻿<div id="body">
+   <table>
+      <tr>
+         <!--INI HTML POINTS-->
+         <td style="vertical-align:text-top;">
+            <div>
+               <h1>Manage Points</h1>
+               <p>List of points:</p>
+               <ul id="points"></ul>
+               <div>
+               <form id="getPointForm" method="get">
+                  <input type="button" id="getPoint" value="Get Points" />
+               </form>
+               </div>
+               <div>
+               <form id="savePointForm" method="post">
+                  <h3>Create a new Point</h3>
+                  <input type="hidden" name="Id" value="-1"/>                 
+                  <p>
+                     <label for="pointName">Point name:</label>
+                     <input type="text" name="Name" />
+                  </p>
+                  <input type="button" id="savePoint" value="Save" />
+               </form>
+               </div>
+               <div>
+               <form id="deletePointForm" method="post">
+                  <h3>Delete a Point</h3>
+                  <h8>It will delete all routes where source point or destination point is the point you will delete!</h8>
+                  <p>
+                     <label for="pointId">Point Id:</label>
+                     <input type="text" name="Id" />
+                  </p>
+                  <input type="hidden" name="Name" value=""/>                 
+                  <input type="button" id="deletePoint" value="Delete" />
+               </form>
+               </div>
+               <div>
+               <form id="updatePointForm" method="post">
+                  <h3>Update a Point</h3>
+                  <p>
+                     <label for="pointId">Point Id to update:</label>
+                     <input type="text" name="Id" />
+                  </p>
+                   <p>
+                     <label for="pointName">Point new name:</label>
+                     <input type="text" name="Name" />
+                  </p>               
+                  <input type="button" id="updatePoint" value="Update" />
+               </form>
+               </div>
+            </div>
+         </td>
+         <!--END HTML POINTS-->
+         <!--INI HTML ROUTES-->
+         <td style="vertical-align:text-top;">
+            <div>
+               <h1>Manage Routes</h1>
+               <p>List of routes:</p>
+               <ul id="routes"></ul>
+               <div>
+               <form id="getRouteForm" method="get">
+                  <input type="button" id="getRoute" value="Get Routes" />
+               </form>
+               </div>
+               <div>
+               <form id="saveRouteForm" method="post">
+                  <h3>Create a new Route</h3>
+                  <p>
+                     <label for="sourcePointId">Source point id:</label>
+                     <input type="text" name="IdSource" />
+                  </p>
+                  <p>
+                     <label for="destinationPointId">Destination Point Id:</label>
+                     <input type="text" name="IdDestiny" />
+                  </p>
+                  <p>
+                     <label for="routeCost">Route cost:</label>
+                     <input type="text" name="RouteCost" />
+                  </p>
+                  <p>
+                     <label for="routeCost">Route time:</label>
+                     <input type="text" name="RouteTime" />
+                  </p>
+                  <input type="button" id="saveRoute" value="Save" />
+               </form>
+               </div>
+               <div>
+               <form id="deleteRouteForm" method="post">
+                  <h3>Delete a Route</h3>
+                  <p>
+                     <label for="sourcePointId">Source point id:</label>
+                     <input type="text" name="IdSource" />
+                  </p>
+                  <p>
+                     <label for="destinationPointId">Destination Point Id:</label>
+                     <input type="text" name="IdDestiny" />
+                  </p>
+                  <input type="hidden" name="RouteCost" value=""/>   
+                  <input type="hidden" name="RouteTime" value=""/>   
+                  <input type="button" id="deleteRoute" value="Delete" />
+               </form>
+               </div>
+               <div>
+               <form id="updateRouteForm" method="post">
+                  <h3>Update a Route</h3>
+                  <p>
+                     <label for="sourcePointId">Source point id:</label>
+                     <input type="text" name="IdSource" />
+                  </p>
+                  <p>
+                     <label for="destinationPointId">Destination Point Id:</label>
+                     <input type="text" name="IdDestiny" />
+                  </p>
+                  <p>
+                     <label for="routeCost">Route cost:</label>
+                     <input type="text" name="RouteCost" />
+                  </p>
+                  <p>
+                     <label for="routeCost">Route time:</label>
+                     <input type="text" name="RouteTime" />
+                  </p>
+                  <input type="button" id="updateRoute" value="Update" />
+               </form>
+               </div>
+            </div>
+         </td>
+         <!--END HTML ROUTES-->
+         <!--INI HTML DELIVERY-->
+         <td style="vertical-align:text-top;">
+            <div>
+               <h1>Get Delivery</h1>
+               <p id="delivery"></p>
+               <div>
+               <form id="getDeliveryForm" method="post">
+                  <p>
+                     <label for="sourcePointId">Source point id:</label>
+                     <input type="text" name="IdSource" />
+                  </p>
+                  <p>
+                     <label for="destinationPointId">Destination Point Id:</label>
+                     <input type="text" name="IdDestiny" />
+                  </p>
+                  <p>
+                     <label for="destinationPointId">Options: Cost or Time:</label>
+                     <input type="text" name="Type" />
+                  </p>
+                   <input type="hidden" name="BestRoute" value=""/>    
+                  <input type="button" id="getDelivery" value="Get best delivery" />
+               </form>
+               </div>
+            </div>
+         </td>
+         <!--END HTML DELIVERY-->
+      </tr>
+   </table>
+</div>
+
+@section scripts{
+<script type="text/javascript">
+    //*************************
+    // INI Points JS
+    //*************************
+    $(function () {
+        $.getJSON('/api/Point/GetPoints', function (contactsJsonPayload) {
+            $(contactsJsonPayload).each(function (i, item) {
+                $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
+            });
+        });
+    });
+
+    $('#getPoint').click(function () {
+        $.getJSON('/api/Point/GetPoints', function (contactsJsonPayload) {
+            document.getElementById("points").innerHTML = "";
+            $(contactsJsonPayload).each(function (i, item) {
+                $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
+            });
+        });
+    });
+
+    $('#savePoint').click(function () {
+        $.post("api/Point/SavePoint",
+              $("#savePointForm").serialize(),
+              function (value) {
+                  document.getElementById("points").innerHTML = "";
+                  $(value).each(function (i, item) {
+                      $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
+                  });
+              },
+              "json"
+        );
+        document.getElementById("savePointForm").reset();
+    });
+
+    $('#deletePoint').click(function () {
+        $.post("api/Point/DeletePoint",
+              $("#deletePointForm").serialize(),
+              function (value) {
+                  document.getElementById("points").innerHTML = "";
+                  $(value).each(function (i, item) {
+                      $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
+                  });
+              },
+              "json"
+        );
+        document.getElementById("deletePointForm").reset();
+    });
+
+    $('#updatePoint').click(function () {
+        $.post("api/Point/UpdatePoint",
+              $("#updatePointForm").serialize(),
+              function (value) {
+                  document.getElementById("points").innerHTML = "";
+                  $(value).each(function (i, item) {
+                      $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
+                  });
+              },
+              "json"
+        );
+        document.getElementById("updatePointForm").reset();
+    });
+    //*************************
+    // END Points JS
+    //*************************
+    //*************************
+    // INI Routes JS
+    //*************************
+    $(function () {
+        $.getJSON('/api/Route', function (contactsJsonPayload) {
+            $(contactsJsonPayload).each(function (i, item) {
+                $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+            });
+        });
+    });
+
+    $('#getRoute').click(function () {
+        $.getJSON('/api/Route/GetRoutes', function (contactsJsonPayload) {
+            document.getElementById("routes").innerHTML = "";
+            $(contactsJsonPayload).each(function (i, item) {
+                $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+            });
+        });
+    });
+
+    $('#saveRoute').click(function () {
+        $.post("api/Route/SaveRoute",
+              $("#saveRouteForm").serialize(),
+              function (value) {
+                  $('#routes').append('<li>' + value.IdSource + " - " + value.IdDestiny + " - " + value.RouteCost + " - " + value.RouteTime + '</li>');
+              },
+              "json"
+        );
+        document.getElementById("saveRouteForm").reset();
+    });
+
+    $('#deleteRoute').click(function () {
+        $.post("api/Route/DeleteRoute",
+              $("#deleteRouteForm").serialize(),
+              function (value) {
+                  document.getElementById("routes").innerHTML = "";
+                  $(value).each(function (i, item) {
+                      $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+                  });
+              },
+              "json"
+        );
+        document.getElementById("deleteRouteForm").reset();
+    });
+
+    $('#updateRoute').click(function () {
+        $.post("api/Route/UpdateRoute",
+              $("#updateRouteForm").serialize(),
+              function (value) {
+                  document.getElementById("routes").innerHTML = "";
+                  $(value).each(function (i, item) {
+                      $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+                  });
+              },
+              "json"
+        );
+        document.getElementById("updateRouteForm").reset();
+    });
+    //*************************
+    // END Routes JS
+    //*************************
+    //*************************
+    // INI Delivery JS
+    //*************************
+    $('#getDelivery').click(function () {
+        $.post("api/Delivery/GetDelivery",
+              $("#getDeliveryForm").serialize(),
+              function (value) {
+                  document.getElementById("delivery").innerHTML = "";
+                  $('#delivery').append(value.BestRoute);
+              },
+              "json"
+        );
+        document.getElementById("getDeliveryForm").reset();
+    });
+    //*************************
+    // END Delivery JS
+    //*************************
+</script>
+}
