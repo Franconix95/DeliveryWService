@@ -21,12 +21,14 @@
                      <input type="text" name="Name" />
                   </p>
                   <input type="button" id="savePoint" value="Save" />
+                   <h8 id = "resPointSave"></h8>
                </form>
                </div>
                <div>
                <form id="deletePointForm" method="post">
                   <h3>Delete a Point</h3>
                   <h8>It will delete all routes where source point or destination point is the point you will delete!</h8>
+                  <h8 id = "resPointDelete"></h8>
                   <p>
                      <label for="pointId">Point Id:</label>
                      <input type="text" name="Id" />
@@ -38,6 +40,7 @@
                <div>
                <form id="updatePointForm" method="post">
                   <h3>Update a Point</h3>
+                  <h8 id="resPointUpdate"></h8>
                   <p>
                      <label for="pointId">Point Id to update:</label>
                      <input type="text" name="Id" />
@@ -72,7 +75,7 @@
                   </p>
                   <p>
                      <label for="destinationPointId">Destination Point Id:</label>
-                     <input type="text" name="IdDestiny" />
+                     <input type="text" name="IdDestination" />
                   </p>
                   <p>
                      <label for="routeCost">Route cost:</label>
@@ -94,7 +97,7 @@
                   </p>
                   <p>
                      <label for="destinationPointId">Destination Point Id:</label>
-                     <input type="text" name="IdDestiny" />
+                     <input type="text" name="IdDestination" />
                   </p>
                   <input type="hidden" name="RouteCost" value=""/>   
                   <input type="hidden" name="RouteTime" value=""/>   
@@ -110,7 +113,7 @@
                   </p>
                   <p>
                      <label for="destinationPointId">Destination Point Id:</label>
-                     <input type="text" name="IdDestiny" />
+                     <input type="text" name="IdDestination" />
                   </p>
                   <p>
                      <label for="routeCost">Route cost:</label>
@@ -139,7 +142,7 @@
                   </p>
                   <p>
                      <label for="destinationPointId">Destination Point Id:</label>
-                     <input type="text" name="IdDestiny" />
+                     <input type="text" name="IdDestination" />
                   </p>
                   <p>
                      <label for="destinationPointId">Options: Cost or Time:</label>
@@ -182,10 +185,7 @@
         $.post("api/Point/SavePoint",
               $("#savePointForm").serialize(),
               function (value) {
-                  document.getElementById("points").innerHTML = "";
-                  $(value).each(function (i, item) {
-                      $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
-                  });
+                
               },
               "json"
         );
@@ -196,10 +196,6 @@
         $.post("api/Point/DeletePoint",
               $("#deletePointForm").serialize(),
               function (value) {
-                  document.getElementById("points").innerHTML = "";
-                  $(value).each(function (i, item) {
-                      $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
-                  });
               },
               "json"
         );
@@ -210,10 +206,6 @@
         $.post("api/Point/UpdatePoint",
               $("#updatePointForm").serialize(),
               function (value) {
-                  document.getElementById("points").innerHTML = "";
-                  $(value).each(function (i, item) {
-                      $('#points').append('<li>' + item.Id + " - " + item.Name + '</li>');
-                  });
               },
               "json"
         );
@@ -228,7 +220,7 @@
     $(function () {
         $.getJSON('/api/Route', function (contactsJsonPayload) {
             $(contactsJsonPayload).each(function (i, item) {
-                $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+                $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestination + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
             });
         });
     });
@@ -237,7 +229,7 @@
         $.getJSON('/api/Route/GetRoutes', function (contactsJsonPayload) {
             document.getElementById("routes").innerHTML = "";
             $(contactsJsonPayload).each(function (i, item) {
-                $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+                $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestination + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
             });
         });
     });
@@ -246,7 +238,7 @@
         $.post("api/Route/SaveRoute",
               $("#saveRouteForm").serialize(),
               function (value) {
-                  $('#routes').append('<li>' + value.IdSource + " - " + value.IdDestiny + " - " + value.RouteCost + " - " + value.RouteTime + '</li>');
+                  //$('#routes').append('<li>' + value.IdSource + " - " + value.IdDestination + " - " + value.RouteCost + " - " + value.RouteTime + '</li>');
               },
               "json"
         );
@@ -257,10 +249,10 @@
         $.post("api/Route/DeleteRoute",
               $("#deleteRouteForm").serialize(),
               function (value) {
-                  document.getElementById("routes").innerHTML = "";
+                 /* document.getElementById("routes").innerHTML = "";
                   $(value).each(function (i, item) {
-                      $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
-                  });
+                      $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestination + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+                  });*/
               },
               "json"
         );
@@ -271,10 +263,10 @@
         $.post("api/Route/UpdateRoute",
               $("#updateRouteForm").serialize(),
               function (value) {
-                  document.getElementById("routes").innerHTML = "";
+                  /*document.getElementById("routes").innerHTML = "";
                   $(value).each(function (i, item) {
-                      $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestiny + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
-                  });
+                      $('#routes').append('<li>' + item.IdSource + " - " + item.IdDestination + " - " + item.RouteCost + " - " + item.RouteTime + '</li>');
+                  });*/
               },
               "json"
         );

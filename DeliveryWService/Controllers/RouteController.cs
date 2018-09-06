@@ -33,31 +33,40 @@ namespace DeliveryWService.Controllers
         [ActionName("SaveRoute")]
         public HttpResponseMessage SaveRoute(Route route)
         {
-            this.routeRepository.SaveRoute(route);
-
-            var response = Request.CreateResponse<Route>(System.Net.HttpStatusCode.Created, route);
-
-            return response;
+            if (!ModelState.IsValid)
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ModelState);
+            else if (this.routeRepository.SaveRoute(route))
+                return Request.CreateResponse<Route>(System.Net.HttpStatusCode.Created, route);
+            else
+                return Request.CreateResponse<Route>(System.Net.HttpStatusCode.BadRequest, route);
         }
         /// <summary>
         /// Delete route.
         /// </summary>
         [System.Web.Http.HttpPost]
         [ActionName("DeleteRoute")]
-        public Route[] DeleteRoute(Route route)
+        public HttpResponseMessage DeleteRoute(Route route)
         {
-            this.routeRepository.DeleteRoute(route);
-            return routeRepository.GetAllRoutes();
+            if (!ModelState.IsValid)
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ModelState); 
+            else if (this.routeRepository.DeleteRoute(route))
+                return Request.CreateResponse<Route>(System.Net.HttpStatusCode.Created, route);
+            else
+                return Request.CreateResponse<Route>(System.Net.HttpStatusCode.BadRequest, route);
         }
         /// <summary>
-        /// Update route.
+        /// Update route - Updates only cost or time
         /// </summary>
         [System.Web.Http.HttpPost]
         [ActionName("UpdateRoute")]
-        public Route[] UpdateRoute(Route route)
+        public HttpResponseMessage UpdateRoute(Route route)
         {
-            this.routeRepository.UpdateRoute(route);
-            return routeRepository.GetAllRoutes();
+            if (!ModelState.IsValid)
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ModelState); 
+            else if (this.routeRepository.UpdateRoute(route))
+                return Request.CreateResponse<Route>(System.Net.HttpStatusCode.Created, route);
+            else
+                return Request.CreateResponse<Route>(System.Net.HttpStatusCode.BadRequest, route);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace DeliveryWService.Controllers
             this.deliveryRepository = new DeliveryRepository();
         }
         /// <summary>
-        /// Get bets delivery route.
+        /// Get bets delivery route - Default type is by cost
         /// </summary>
         [System.Web.Http.HttpPost]
         [ActionName("GetDelivery")]
@@ -27,7 +27,6 @@ namespace DeliveryWService.Controllers
             Delivery deliveryRes = this.deliveryRepository.GetDelivery(delivery);
 
             var response = Request.CreateResponse<Delivery>(System.Net.HttpStatusCode.Created, deliveryRes);
-
             return response;
         }
 

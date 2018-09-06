@@ -254,31 +254,6 @@
             Initializes a new instance of the <see cref="T:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator"/> class.
             </summary>
         </member>
-        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
-            <summary>
-            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
-            </summary>
-        </member>
-        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
-            <summary>
-            Gets the objects that are used directly as samples for certain actions.
-            </summary>
-        </member>
-        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
-            <summary>
-            Gets the objects that are serialized as samples by the supported formatters.
-            </summary>
-        </member>
-        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
-            <summary>
-            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
-            stopping when the factory successfully returns a non-<see langref="null"/> object.
-            </summary>
-            <remarks>
-            Collection includes just <see cref="M:DeliveryWService.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
-            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
-            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
-        </member>
         <member name="M:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
             <summary>
             Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
@@ -351,6 +326,31 @@
             <param name="type">The type.</param>
             <param name="mediaType">Type of the media.</param>
             <returns></returns>
+        </member>
+        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:DeliveryWService.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
         </member>
         <member name="T:DeliveryWService.Areas.HelpPage.HelpPageSampleKey">
             <summary>
@@ -483,7 +483,7 @@
         </member>
         <member name="M:DeliveryWService.Controllers.DeliveryController.GetDelivery(DeliveryWService.Models.Delivery)">
             <summary>
-            Get bets delivery route.
+            Get bets delivery route - Default type is by cost
             </summary>
         </member>
         <member name="M:DeliveryWService.Controllers.PointController.GetAllPoints">
@@ -498,12 +498,12 @@
         </member>
         <member name="M:DeliveryWService.Controllers.PointController.DeletePoint(DeliveryWService.Models.Point)">
             <summary>
-            Delete a point.
+            Delete a point - Delete all routes where source or destination point is the point selected for deletion
             </summary>
         </member>
         <member name="M:DeliveryWService.Controllers.PointController.UpdatePoint(DeliveryWService.Models.Point)">
             <summary>
-            Update a point.
+            Update a point
             </summary>
         </member>
         <member name="M:DeliveryWService.Controllers.RouteController.Get">
@@ -523,8 +523,100 @@
         </member>
         <member name="M:DeliveryWService.Controllers.RouteController.UpdateRoute(DeliveryWService.Models.Route)">
             <summary>
-            Update route.
+            Update route - Updates only cost or time
             </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Delivery.IdSource">
+            <summary>
+            Id source point.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Delivery.IdDestination">
+            <summary>
+            Id destination point.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Delivery.Type">
+            <summary>
+            Default type is by cost
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Delivery.BestRoute">
+            <summary>
+            Get's the best route and total cost or time
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Point.Id">
+            <summary>
+            Id point - auto increment.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Point.Name">
+            <summary>
+            Name point - must be unique.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Route.IdSource">
+            <summary>
+            Source id point - must exists in points repository.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Route.IdDestination">
+            <summary>
+            Destination id point - must exists in points repository.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Route.RouteCost">
+            <summary>
+            Cost value for route.
+            </summary>
+        </member>
+        <member name="P:DeliveryWService.Models.Route.RouteTime">
+            <summary>
+            Time value for route.
+            </summary>
+        </member>
+        <member name="M:DeliveryWService.Services.LogService.#ctor(System.Boolean)">
+            <summary>
+            Initiate an instance of SimpleLogger class constructor.
+            If log file does not exist, it will be created automatically.
+            </summary>
+        </member>
+        <member name="M:DeliveryWService.Services.LogService.Debug(System.String)">
+            <summary>
+            Log a DEBUG message
+            </summary>
+            <param name="text">Message</param>
+        </member>
+        <member name="M:DeliveryWService.Services.LogService.Error(System.String)">
+            <summary>
+            Log an ERROR message
+            </summary>
+            <param name="text">Message</param>
+        </member>
+        <member name="M:DeliveryWService.Services.LogService.Fatal(System.String)">
+            <summary>
+            Log a FATAL ERROR message
+            </summary>
+            <param name="text">Message</param>
+        </member>
+        <member name="M:DeliveryWService.Services.LogService.Info(System.String)">
+            <summary>
+            Log an INFO message
+            </summary>
+            <param name="text">Message</param>
+        </member>
+        <member name="M:DeliveryWService.Services.LogService.Trace(System.String)">
+            <summary>
+            Log a TRACE message
+            </summary>
+            <param name="text">Message</param>
+        </member>
+        <member name="M:DeliveryWService.Services.LogService.Warning(System.String)">
+            <summary>
+            Log a WARNING message
+            </summary>
+            <param name="text">Message</param>
         </member>
     </members>
 </doc>

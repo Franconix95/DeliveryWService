@@ -30,30 +30,42 @@ namespace DeliveryWService.Controllers
         /// </summary>
         [System.Web.Http.HttpPost]
         [ActionName("SavePoint")]
-        public Point[] SavePoint(Point point)
+        public HttpResponseMessage SavePoint(Point point)
         {
-            this.pointRepository.SavePoint(point);
-            return pointRepository.GetAllPoints();
+            if (!ModelState.IsValid)
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ModelState);
+            else if (this.pointRepository.SavePoint(point))
+                return Request.CreateResponse<Point>(System.Net.HttpStatusCode.Created, point);
+            else
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, "Error saving point!");
         }
         /// <summary>
-        /// Delete a point.
+        /// Delete a point - Delete all routes where source or destination point is the point selected for deletion
         /// </summary>
         [System.Web.Http.HttpPost]
         [ActionName("DeletePoint")]
-        public Point[] DeletePoint(Point point)
+        public HttpResponseMessage DeletePoint(Point point)
         {
-            this.pointRepository.DeletePoint(point);
-            return pointRepository.GetAllPoints();
+            if (!ModelState.IsValid)
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ModelState);
+            else if (this.pointRepository.DeletePoint(point))
+                return Request.CreateResponse<Point>(System.Net.HttpStatusCode.OK, point);
+            else
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, "Error deleting point!");
         }
         /// <summary>
-        /// Update a point.
+        /// Update a point
         /// </summary>
         [System.Web.Http.HttpPost]
         [ActionName("UpdatePoint")]
-        public Point[] UpdatePoint(Point point)
+        public HttpResponseMessage UpdatePoint(Point point)
         {
-            this.pointRepository.UpdatePoint(point);
-            return pointRepository.GetAllPoints();
+            if (!ModelState.IsValid)
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, ModelState);
+            else if (this.pointRepository.UpdatePoint(point))
+                return Request.CreateResponse<Point>(System.Net.HttpStatusCode.OK, point);
+            else
+                return Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, "Error updating point!");
         }
     }
 }

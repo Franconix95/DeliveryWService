@@ -1,0 +1,241 @@
+﻿2018-09-05 14:55:25.643 D:\Jaime\Project\DeliveryWService\DeliveryWService\DeliveryWService\LOGS\DeliveryWService.log is created.
+2018-09-05 14:55:25.648 [ERROR]   GetAllPoints - A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/ds243812.mlab.com:43812" }", EndPoint: "Unspecified/ds243812.mlab.com:43812", State: "Disconnected", Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server. ---> MongoDB.Driver.MongoAuthenticationException: Unable to authenticate using sasl protocol mechanism SCRAM-SHA-1. ---> MongoDB.Driver.MongoCommandException: Command saslStart failed: Authentication failed..
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.ProcessReply(ConnectionId connectionId, ReplyMessage`1 reply) in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 300
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.<ExecuteAsync>d__14.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 151
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 114
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 118
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.DefaultAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\DefaultAuthenticator.cs:line 110
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.AuthenticationHelper.<AuthenticateAsync>d__1.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\AuthenticationHelper.cs:line 58
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.ConnectionInitializer.<InitializeConnectionAsync>d__3.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\ConnectionInitializer.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 298
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 305
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Servers.ServerMonitor.<HeartbeatAsync>d__27.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Servers\ServerMonitor.cs:line 147" }] }.
+2018-09-05 15:10:07.969 [ERROR]   GetAllPoints - A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/ds243812.mlab.com:43812" }", EndPoint: "Unspecified/ds243812.mlab.com:43812", State: "Disconnected", Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server. ---> MongoDB.Driver.MongoAuthenticationException: Unable to authenticate using sasl protocol mechanism SCRAM-SHA-1. ---> MongoDB.Driver.MongoCommandException: Command saslStart failed: Authentication failed..
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.ProcessReply(ConnectionId connectionId, ReplyMessage`1 reply) in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 300
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.<ExecuteAsync>d__14.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 151
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 114
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 118
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.DefaultAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\DefaultAuthenticator.cs:line 110
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.AuthenticationHelper.<AuthenticateAsync>d__1.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\AuthenticationHelper.cs:line 58
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.ConnectionInitializer.<InitializeConnectionAsync>d__3.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\ConnectionInitializer.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 298
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 305
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Servers.ServerMonitor.<HeartbeatAsync>d__27.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Servers\ServerMonitor.cs:line 147" }] }.
+2018-09-05 15:11:38.748 [ERROR]   GetAllPoints - Command listDatabases failed: not authorized on admin to execute command { listDatabases: 1, nameOnly: true, $db: "admin", lsid: { id: UUID("f2c06576-a868-4920-b488-f53c45b74c43") } }.
+2018-09-05 15:12:59.427 [ERROR]   GetAllPoints - A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/ds243812.mlab.com:43812" }", EndPoint: "Unspecified/ds243812.mlab.com:43812", State: "Disconnected", Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server. ---> MongoDB.Driver.MongoAuthenticationException: Unable to authenticate using sasl protocol mechanism SCRAM-SHA-1. ---> MongoDB.Driver.MongoCommandException: Command saslContinue failed: Authentication failed..
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.ProcessReply(ConnectionId connectionId, ReplyMessage`1 reply) in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 300
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.<ExecuteAsync>d__14.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 151
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 114
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 118
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.DefaultAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\DefaultAuthenticator.cs:line 110
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.AuthenticationHelper.<AuthenticateAsync>d__1.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\AuthenticationHelper.cs:line 58
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.ConnectionInitializer.<InitializeConnectionAsync>d__3.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\ConnectionInitializer.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 298
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 305
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Servers.ServerMonitor.<HeartbeatAsync>d__27.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Servers\ServerMonitor.cs:line 147" }] }.
+2018-09-05 15:25:20.922 [ERROR]   GetAllPoints - A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/ds243812.mlab.com:43812" }", EndPoint: "Unspecified/ds243812.mlab.com:43812", State: "Disconnected", Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server. ---> MongoDB.Driver.MongoAuthenticationException: Unable to authenticate using sasl protocol mechanism SCRAM-SHA-1. ---> MongoDB.Driver.MongoCommandException: Command saslContinue failed: Authentication failed..
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.ProcessReply(ConnectionId connectionId, ReplyMessage`1 reply) in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 300
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.<ExecuteAsync>d__14.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 151
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 114
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 118
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.DefaultAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\DefaultAuthenticator.cs:line 110
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.AuthenticationHelper.<AuthenticateAsync>d__1.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\AuthenticationHelper.cs:line 58
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.ConnectionInitializer.<InitializeConnectionAsync>d__3.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\ConnectionInitializer.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 298
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 305
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Servers.ServerMonitor.<HeartbeatAsync>d__27.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Servers\ServerMonitor.cs:line 147" }] }.
+2018-09-05 15:27:59.869 [ERROR]   GetAllPoints - A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/ds243812.mlab.com:43812" }", EndPoint: "Unspecified/ds243812.mlab.com:43812", State: "Disconnected", Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server. ---> MongoDB.Driver.MongoAuthenticationException: Unable to authenticate using sasl protocol mechanism SCRAM-SHA-1. ---> MongoDB.Driver.MongoCommandException: Command saslContinue failed: Authentication failed..
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.ProcessReply(ConnectionId connectionId, ReplyMessage`1 reply) in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 300
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.<ExecuteAsync>d__14.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 151
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 114
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 118
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.DefaultAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\DefaultAuthenticator.cs:line 110
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.AuthenticationHelper.<AuthenticateAsync>d__1.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\AuthenticationHelper.cs:line 58
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.ConnectionInitializer.<InitializeConnectionAsync>d__3.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\ConnectionInitializer.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 298
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 305
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Servers.ServerMonitor.<HeartbeatAsync>d__27.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Servers\ServerMonitor.cs:line 147" }] }.
+2018-09-05 15:45:47.846 [ERROR]   GetAllPoints - A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/ds243812.mlab.com:43812" }", EndPoint: "Unspecified/ds243812.mlab.com:43812", State: "Disconnected", Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server. ---> MongoDB.Driver.MongoAuthenticationException: Unable to authenticate using sasl protocol mechanism SCRAM-SHA-1. ---> MongoDB.Driver.MongoCommandException: Command saslStart failed: Authentication failed..
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.ProcessReply(ConnectionId connectionId, ReplyMessage`1 reply) in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 300
+   at MongoDB.Driver.Core.WireProtocol.CommandUsingQueryMessageWireProtocol`1.<ExecuteAsync>d__14.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\WireProtocol\CommandUsingQueryMessageWireProtocol.cs:line 151
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 114
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Authentication.SaslAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\SaslAuthenticator.cs:line 118
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.DefaultAuthenticator.<AuthenticateAsync>d__7.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\DefaultAuthenticator.cs:line 110
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Authentication.AuthenticationHelper.<AuthenticateAsync>d__1.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Authentication\AuthenticationHelper.cs:line 58
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.ConnectionInitializer.<InitializeConnectionAsync>d__3.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\ConnectionInitializer.cs:line 81
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 298
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.<OpenHelperAsync>d__48.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Connections\BinaryConnection.cs:line 305
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult()
+   at MongoDB.Driver.Core.Servers.ServerMonitor.<HeartbeatAsync>d__27.MoveNext() in C:\work\rstam\mongo-csharp-driver-v2.7.0\src\MongoDB.Driver.Core\Core\Servers\ServerMonitor.cs:line 147" }] }.
+2018-09-05 15:51:56.829 [ERROR]   GetAllPoints - Command listDatabases failed: not authorized on admin to execute command { listDatabases: 1, nameOnly: true, $db: "admin", lsid: { id: UUID("c16b750e-0a16-4786-b1a9-bb07566bf2a0") } }.
+2018-09-05 15:55:13.419 [ERROR]   GetAllPoints - An error occurred while deserializing the Id property of class DeliveryWService.Models.Point: Cannot deserialize a 'Int32' from BsonType 'ObjectId'.
+2018-09-05 15:57:50.663 [ERROR]   SavePoint - Object reference not set to an instance of an object.
+2018-09-05 16:03:04.131 [ERROR]   SavePoint - A write operation resulted in an error.
+  E11000 duplicate key error index: deliverymanagerdb.POINTS.$_id_ dup key: { : -1 }
+2018-09-05 16:03:25.205 [ERROR]   SavePoint - A write operation resulted in an error.
+  E11000 duplicate key error index: deliverymanagerdb.POINTS.$_id_ dup key: { : -1 }
+2018-09-05 16:28:58.419 [ERROR]   SavePoint - JSON reader was expecting ':' but found '")"'.
+2018-09-05 16:30:23.062 [ERROR]   SavePoint - Invalid JSON input ''.
+2018-09-05 16:34:30.264 [ERROR]   SavePoint - Invalid JSON input ''.
+2018-09-05 16:36:03.630 [ERROR]   SavePoint - Invalid JSON input ''.
+2018-09-05 16:36:49.024 [ERROR]   SavePoint - Command getLastRequestStatistics failed: no such command: 'getLastRequestStatistics', bad cmd: '{ getLastRequestStatistics: 2, $db: "deliverymanagerdb", lsid: { id: UUID("34f84c10-ab0c-4464-81ee-b6b83e66913d") }, $clusterTime: { clusterTime: Timestamp(1536161781, 1), signature: { hash: BinData(0, 8332909DE6FC92E3E223859B634649D88954A37D), keyId: 6597001176028282881 } } }'.
+2018-09-05 16:41:42.239 [ERROR]   SavePoint - Command getNextSequenceValue failed: no such command: 'getNextSequenceValue', bad cmd: '{ getNextSequenceValue: "pointid", $db: "deliverymanagerdb", lsid: { id: UUID("d0ee4d92-567b-4033-9d96-cece8cf2bb49") }, $clusterTime: { clusterTime: Timestamp(1536162085, 1), signature: { hash: BinData(0, 57422FA708627709E39ACFE0B966CDE2DA352E08), keyId: 6597001176028282881 } } }'.
+2018-09-05 16:44:50.652 [ERROR]   SavePoint - Command db.loadServerScripts failed: no such command: 'db.loadServerScripts', bad cmd: '{ db.loadServerScripts: "", getNextSequenceValue: "pointid", $db: "deliverymanagerdb", lsid: { id: UUID("50a7c593-6146-4fcf-bae2-a872e372576f") }, $clusterTime: { clusterTime: Timestamp(1536162135, 1), signature: { hash: BinData(0, D6AC43343FB591C7D9CDAFD2B16D6A10E4FCE6C8), keyId: 6597001176028282881 } } }'.
+2018-09-05 17:00:41.811 [ERROR]   SavePoint - Object reference not set to an instance of an object.
+2018-09-05 17:02:04.105 [ERROR]   SavePoint - Object reference not set to an instance of an object.
+2018-09-05 17:53:06.324 [ERROR]   GetAllPoints - An error occurred while deserializing the Id property of class DeliveryWService.Models.Point: Cannot deserialize a 'Int32' from BsonType 'ObjectId'.
